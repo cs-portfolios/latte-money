@@ -22,7 +22,7 @@ $(function() {
     (month = today.getMonth() + 1),
     (date = today.getDate());
   if (month < 10) month = "0" + month;
-  if (date < 10) date = "0" + today;
+  if (date < 10) date = "0" + date;
   $('input[type="date"][value="today"]').each(function() {
     $(this).attr({ value: year + "-" + month + "-" + date });
   });

@@ -1,7 +1,10 @@
 <?php
-require_once("./init.php");
+// ログインするためのページと処理
 
 $title = "ログインページ";
 require_once("./layout.php");
+
+
+
 
 
