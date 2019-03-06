@@ -9,6 +9,7 @@ include_once('./layout.php');
 include_once('./config.php');
 
 // ログイン中のname
+
 $login_name = "testくん";
 
 
@@ -24,6 +25,7 @@ if ($digits_error==true) {
 <!-- 投稿フォーム -->
 <div class="row">
     <div class="card" style="width: 25em">
+        <a href="login.php">ログインページはこちら</a>
         <div class="form-group">
             <form action="check.php" method="post" class="form" name="postForm">
                 <!-- todo -->
@@ -60,7 +62,7 @@ if ($digits_error==true) {
 
       //   foreachでrowごとのデータをひとまとめにした配列を作ろう
       foreach ($rows as $row) {
-        //   クラスとかは最後に調節する
+          //   クラスとかは最後に調節する
           echo <<<EOD
           <div class="post" style="background-color:moccasin">
           <p class="product">{$row['product']}</p>
@@ -74,6 +76,5 @@ EOD;
       echo "データベースに接続できませんでした:".$e->getMessage();
   }
 
-// idをキーとした配列とその中の変数を出力するのにjqueryを使って見よう
-// bootstrapなのでcol数が3やら4やらで割り切れるときには新規rowで改行？させるようにする
+// bootstrapなのでcol数が4で割り切れるときには新規rowで改行？させるようにしたい
 // ヒアドキュメントを使ってechoもしくはprintを使って出力させよう

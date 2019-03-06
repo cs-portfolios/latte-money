@@ -7,8 +7,7 @@
 include_once('./config.php');
 
 // getリクエストを弾く処理
-if ($_SERVER['REQUEST_METHOD']=== 'POST') {
-    // ここにバリデーション処理とデータベースへの投稿を記述した関数を入れる
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     postValidation();
 } else {
     header('location: index.php');
@@ -21,9 +20,7 @@ if ($_SERVER['REQUEST_METHOD']=== 'POST') {
     {
         // この変数たちはfunction外での定義も外からの参照もできないのでクラスを作ってその中での処理群の一つにすべきか？
         $post = $_POST["post"];
-        // print_r($post);
         $name = $post["name"];
-        $password = $post["password"];
         $product = $post["product"];
         $price = (int)$post["price"];
         $date = $post["date"];
@@ -40,12 +37,12 @@ if ($_SERVER['REQUEST_METHOD']=== 'POST') {
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $db->exec("INSERT INTO posts (name, product, price, date) VALUES ('$name','$product', '$price', '$date')");
                 // リダイレクトが機能していないので機能するようにする
-                header('./index.php');
+                header("Location:./index.php");
             } catch (PDOException $e) {
                 echo "データベースに接続できませんでした:".$e->getMessage();
             }
         } else {
-            // リダイレクトするときに情報を追加して送ってalertを出させる
+            // リダイレクトするときに情報を追加して送ってalertを出させる処理
             header('location: index.php?digits_error="true"');
             exit;
         }

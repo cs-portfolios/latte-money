@@ -14,6 +14,30 @@ const postCheck = () => {
     return true;
   }
 };
+// sign in form
+const signupCheck = () => {
+  let name = document.forms["signupForm"].elements["name"].value;
+  let password = document.forms["signupForm"].elements["password"].value;
+
+  if (name == "" || password == "") {
+    alert("空欄があります");
+    return false;
+  } else {
+    return true;
+  }
+};
+// login form
+const loginCheck = () => {
+  let name = document.forms["loginForm"].elements["name"].value;
+  let password = document.forms["loginForm"].elements["password"].value;
+
+  if (name == "" || password == "") {
+    alert("空欄があります");
+    return false;
+  } else {
+    return true;
+  }
+};
 
 // 日付の投稿フォームに今日の日付をデフォルトで入れる
 $(function() {
