@@ -8,15 +8,3 @@ if (isset($_GET['logout'])) {
 } else {
     header("Location: index.php");
 }
-
-
-
-
-
-?>
-
-
-
-<p>
-    ログアウトページだよ
-</p>

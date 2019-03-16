@@ -1,4 +1,5 @@
 <?php
+session_start();
 // アカウントの新規登録をするための処理がこのファイル
 
 include_once('./config.php');
@@ -20,6 +21,7 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // この下にQueryを書いてexecさせる
     $db->exec("INSERT INTO users(name, password) VALUE ('$name','$password')");
+    $_SESSION['loginName'] = $name;
     header("Location: index.php");
     exit;
 } catch (PDOException $e) {

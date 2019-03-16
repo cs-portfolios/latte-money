@@ -6,12 +6,6 @@ include_once('./layout.php');
 // 投稿一覧のページにリダイレクトさせる方が良さげに思う
 
 // このページで破棄して、そのあとのregister.phpでsessionを発行させてみる
-if (!isset($_POST['name'])) {
-    $_SESSION['name'] = $_POST['name'];
-} else {
-    header("Location: ./index.php");
-    exit;
-}
 
 ?>
 
