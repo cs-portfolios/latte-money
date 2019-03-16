@@ -10,7 +10,7 @@ include_once('./config.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     postValidation();
 } else {
-    header('location: index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $db->exec("INSERT INTO posts (name, product, price, date) VALUES ('$name','$product', '$price', '$date')");
                 // リダイレクトが機能していないので機能するようにする
-                header("Location:./index.php");
+                header("Location:index.php");
             } catch (PDOException $e) {
                 echo "データベースに接続できませんでした:".$e->getMessage();
             }

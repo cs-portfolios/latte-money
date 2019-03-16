@@ -20,7 +20,7 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // この下にQueryを書いてexecさせる
     $db->exec("INSERT INTO users(name, password) VALUE ('$name','$password')");
-    header("Location: ./index.php");
+    header("Location: index.php");
     exit;
 } catch (PDOException $e) {
     echo "新規登録ができませんでした:".$e->getMessage();
