@@ -1,9 +1,12 @@
 <?php
-// ログインするためのページと処理
+// ログインするためのページ
 
 require_once("./layout.php");
 
+
 ?>
+
+</p>
 
 <p>ログイン</p>
 <form id="loginForm" action="loginCheck.php" method="post" class="form" name="postForm">

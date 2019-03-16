@@ -14,7 +14,7 @@ const postCheck = () => {
     return true;
   }
 };
-// sign in form
+// sign in form check
 const signupCheck = () => {
   let name = document.forms["signupForm"].elements["name"].value;
   let password = document.forms["signupForm"].elements["password"].value;
@@ -26,7 +26,7 @@ const signupCheck = () => {
     return true;
   }
 };
-// login form
+// login form check
 const loginCheck = () => {
   let name = document.forms["loginForm"].elements["name"].value;
   let password = document.forms["loginForm"].elements["password"].value;

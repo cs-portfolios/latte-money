@@ -1,9 +1,11 @@
 <?php
+session_start();
 include_once('./layout.php');
 
-// セッション作成、セッションの中に新規登録postのnameを送信してる
-// 入ってたらリダイレクトするよ
-session_start();
+// サインアップする時にはsessionを破棄してから再度sessionを作成して、
+// 投稿一覧のページにリダイレクトさせる方が良さげに思う
+
+// このページで破棄して、そのあとのregister.phpでsessionを発行させてみる
 if (!isset($_POST['name'])) {
     $_SESSION['name'] = $_POST['name'];
 } else {

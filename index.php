@@ -3,14 +3,18 @@
 <!-- 最初にログインしてあるかどうかを診断して、そのアカウントの投稿をfetchで一覧表示させる -->
 
 <?php
+session_start();
+if ($_SESSION['loginName']) {
+    header("Location:login.php");
+    exit();
+}
 
 $title = "投稿一覧";
 include_once('./layout.php');
 include_once('./config.php');
 
 // ログイン中のname
-
-$login_name = "testくん";
+$loginName = $_SESSION['loginName'];
 
 
 // 桁数が多いときのエラーの際にだけalertを出させる処理
@@ -25,13 +29,18 @@ if ($digits_error==true) {
 <!-- 投稿フォーム -->
 <div class="row">
     <div class="card" style="width: 25em">
+        <p>こんにちは、<?= $loginName ?>さん
+        </p>
+        <!-- ログアウトボタン -->
+        <input type="button" value="log out" onclick="location.href='./logout.php?logout'">
         <a href="login.php">ログインページはこちら</a>
         <div class="form-group">
             <form action="check.php" method="post" class="form" name="postForm">
                 <!-- todo -->
                 <!-- ログイン機能が完成したらnameとpasswordも投稿させるようにする -->
                 <!-- post[name]にはログイン中の名前を変数でvalueで入れるようにする -->
-                <input type="hidden" class="form-control" name="post[name]" id="name" value="<?=$login_name ?>">
+                <input type="hidden" class="form-control" name="post[name]" id="name"
+                    value="<?=$loginName ?>">
                 <label>Product</label>
                 <input type="text" class="form-control" name="post[product]" id="product" placeholder="買った商品">
                 <label>Price</label>
@@ -56,8 +65,8 @@ if ($digits_error==true) {
                     PASSWORD
                              );
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $rows = "";//空の配列を作る
-      $stmt = $db->query("SELECT * FROM posts WHERE name = '$login_name'");
+      //   $rows = "";//空の配列を作る
+      $stmt = $db->query("SELECT * FROM posts WHERE name = '$loginName'");
       $rows = $stmt->fetchALL(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);
 
       //   foreachでrowごとのデータをひとまとめにした配列を作ろう
