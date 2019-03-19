@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(topbg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+h1 {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  font-size: 10em;
+  text-align: center;
+  background-image: url(topbg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h1:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  text-shadow: -5px 5px 20px #000, -10px 10px 30px #000;
+  /* text-shadow: -20px 15px, 40px #000, -25px 20px 50px #000; */
+}
