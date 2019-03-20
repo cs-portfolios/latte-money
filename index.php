@@ -36,9 +36,6 @@ if ($digits_error==true) {
         <a href="login.php">ログインページはこちら</a>
         <div class="form-group">
             <form action="check.php" method="post" class="form" name="postForm">
-                <!-- todo -->
-                <!-- ログイン機能が完成したらnameとpasswordも投稿させるようにする -->
-                <!-- post[name]にはログイン中の名前を変数でvalueで入れるようにする -->
                 <input type="hidden" class="form-control" name="post[name]" id="name"
                     value="<?=$loginName ?>">
                 <label>Product</label>
@@ -65,8 +62,9 @@ if ($digits_error==true) {
                     PASSWORD
                              );
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      //   $rows = "";//空の配列を作る
-      $stmt = $db->query("SELECT * FROM posts WHERE name = '$loginName'");
+
+
+      $stmt = $db->query("SELECT post_id, posts.* FROM posts WHERE name = '$loginName'");
       $rows = $stmt->fetchALL(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);
 
       //   foreachでrowごとのデータをひとまとめにした配列を作ろう
@@ -75,8 +73,16 @@ if ($digits_error==true) {
           echo <<<EOD
           <div class="post" style="background-color:moccasin">
           <p class="product">{$row['product']}</p>
-          <p class="price">{$row['price']}</p>
-          <p class="date">{$row['date']}</p>
+          <p class="price">値段:{$row['price']}円</p>
+          <p class="date">日付:{$row['date']}</p>
+            <form action="updateView.php" method="post">
+            <input type="hidden" name="post_id" value={$row['post_id']}>
+                <button type="submit">編集ボタン</button>
+            </form>
+            <form action="delete.php" method="post">
+            <input type="hidden" name="post_id" value={$row['post_id']}>
+                <button type="submit" onclick="return deleteAlert()"> 削除ボタン</button>
+            </form>
           </div>
 
 EOD;
@@ -85,5 +91,6 @@ EOD;
       echo "データベースに接続できませんでした:".$e->getMessage();
   }
 
+
+
 // bootstrapなのでcol数が4で割り切れるときには新規rowで改行？させるようにしたい
-// ヒアドキュメントを使ってechoもしくはprintを使って出力させよう

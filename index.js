@@ -39,6 +39,15 @@ const loginCheck = () => {
   }
 };
 
+const deleteAlert = () => {
+  let res = confirm("削除しますか？");
+  if (res == true) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 // 日付の投稿フォームに今日の日付をデフォルトで入れる
 $(function() {
   (today = new Date()),
