@@ -9,7 +9,7 @@ include_once('./config.php');
 
 $post_id = $_POST['post_id'];
 
-  $db = new PDO(
+$db = new PDO(
                     DSN,
                     USERNAME,
                     PASSWORD
@@ -17,12 +17,13 @@ $post_id = $_POST['post_id'];
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-      $stmt = $db->query("SELECT post_id, posts.* FROM posts WHERE post_id = '$id'");
+      $stmt = $db->query("SELECT post_id, posts.* FROM posts WHERE post_id = '$post_id'");
       $rows = $stmt->fetchALL(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);
       foreach ($rows as $row) {
           $currentProduct = $row['product'];
           $currentPrice = $row['price'];
           $currentDate = $row['date'];
+          $currentName = $row['name'];
       }
 ?>
 
@@ -31,8 +32,10 @@ $post_id = $_POST['post_id'];
         <!-- todo -->
         <!-- formの中には元々は入っていたデートを入力しておいて、それを削除して中身を入れてからprimary keyのidを使って上書きさせるようにする
         なので、全部のvalueが更新されるようなquery文を書く必要がある -->
-        <input type="hidden" class="form-control" name="post[name]" id="post_id"
-            value="<?=$post_id ?>">
+        <input type="hidden" class="form-control" name="post[post_id]"
+            value="<?= $post_id ?>">
+        <input type="hidden" class="form-control" name="post[name]"
+            value="<?= $currentName?>">
         <label>Product</label>
         <input type="text" class="form-control" name="post[product]" id="product"
             value="<?= $currentProduct?>">

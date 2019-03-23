@@ -3,8 +3,7 @@
 include_once('./config.php');
 
 
-$id = $_POST['post_id'];
-// var_dump($id);
+$post_id = $_POST['post_id'];
 
 try {
     $db = new PDO(
@@ -15,7 +14,7 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-    $stmt = $db->exec("DELETE FROM posts WHERE post_id = '$id'");
+    $stmt = $db->exec("DELETE FROM posts WHERE post_id = '$post_id'");
     header('Location:index.php');
     exit();
 } catch (PDOException $e) {

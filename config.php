@@ -5,6 +5,6 @@
 // define('USERNAME', 'root');
 // define('PASSWORD', 'root');
 
-const DSN = 'mysql:dbname=portfolio_test;host=localhost;charset=utf8mb4';
+const DSN = 'mysql:dbname=latte_money;host=localhost;charset=utf8mb4';
 const USERNAME = 'root';
 const PASSWORD = 'root';
