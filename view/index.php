@@ -5,13 +5,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['loginName'])) {
-    header("Location:login.php");
+    header("Location:./login.php");
     exit();
 }
 
 $title = "投稿一覧";
 include_once('./layout.php');
-include_once('./config.php');
+include_once('../config.php');
 
 // ログイン中のname
 $loginName = $_SESSION['loginName'];
@@ -32,10 +32,10 @@ if ($digits_error==true) {
         <p>こんにちは、<?= $loginName ?>さん
         </p>
         <!-- ログアウトボタン -->
-        <input type="button" value="log out" onclick="location.href='./logout.php?logout'">
-        <a href="login.php">ログインページはこちら</a>
+        <input type="button" value="log out" onclick="location.href='../logout.php?logout'">
+        <a href="./login.php">ログインページはこちら</a>
         <div class="form-group">
-            <form action="check.php" method="post" class="form" name="postForm">
+            <form action="../check.php" method="post" class="form" name="postForm">
                 <input type="hidden" class="form-control" name="post[name]" id="name"
                     value="<?=$loginName ?>">
                 <label>Product</label>
@@ -79,7 +79,7 @@ if ($digits_error==true) {
             <input type="hidden" name="post_id" value={$row['post_id']}>
                 <button type="submit">編集ボタン</button>
             </form>
-            <form action="delete.php" method="post">
+            <form action="../delete.php" method="post">
             <input type="hidden" name="post_id" value={$row['post_id']}>
                 <button type="submit" onclick="return deleteAlert()"> 削除ボタン</button>
             </form>

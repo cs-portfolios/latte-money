@@ -32,7 +32,7 @@ try {
     // 配列の作成
     $newPost = [':product'=>$newProduct,':price'=>$newPrice,':date'=>$newDate,':name'=>$name,':post_id'=>$changeId];
     $stmt->execute($newPost);
-    header('Location:index.php');
+    header('Location:./view/index.php');
     exit();
 } catch (PDOException $e) {
     echo "データベースに接続できませんでした:".$e->getMessage();

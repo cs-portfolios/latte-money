@@ -25,7 +25,7 @@ if (!empty($_POST['name'] && !empty($_POST['password']))) {
             $name = $row['name'];
             if (password_verify($password, $hashedPassword)) {
                 $_SESSION['loginName'] = $name;
-                header("Location:index.php");
+                header("Location:./view/index.php");
             } else {
                 echo 'パスワードが違うよ';
             }

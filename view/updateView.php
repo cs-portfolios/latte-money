@@ -4,7 +4,7 @@
 // そのidを使ってデータの取得と、編集をする
 
 include_once('./layout.php');
-include_once('./config.php');
+include_once('../config.php');
 
 
 $post_id = $_POST['post_id'];
@@ -28,7 +28,7 @@ $db = new PDO(
 ?>
 
 <div class="form-group">
-    <form action="update.php" method="post" class="form" name="postForm">
+    <form action="../update.php" method="post" class="form" name="postForm">
         <!-- todo -->
         <!-- formの中には元々は入っていたデートを入力しておいて、それを削除して中身を入れてからprimary keyのidを使って上書きさせるようにする
         なので、全部のvalueが更新されるようなquery文を書く必要がある -->

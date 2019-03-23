@@ -22,8 +22,8 @@ try {
     // この下にQueryを書いてexecさせる
     $db->exec("INSERT INTO users(name, password) VALUE ('$name','$password')");
     $_SESSION['loginName'] = $name;
-    header("Location: index.php");
+    header("Location: ./view/index.php");
     exit;
 } catch (PDOException $e) {
-    echo "新規登録ができませんでした:".$e->getMessage();
+    echo "同名の名前がすでに存在しています。違う名前で再登録してください。";
 }

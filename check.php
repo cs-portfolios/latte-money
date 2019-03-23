@@ -10,7 +10,7 @@ include_once('./config.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     postValidation();
 } else {
-    header('Location: index.php');
+    header('Location: ./view/index.php');
     exit;
 }
 
@@ -34,17 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                              );
                     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $db->exec("INSERT INTO posts (name, product, price, date) VALUES ('$name','$product', '$price', '$date')");
-                    header("Location:index.php");
+                    header("Location:./view/index.php");
                 } catch (PDOException $e) {
                     echo "データベースに接続できませんでした:".$e->getMessage();
                 }
             } else {
                 // リダイレクトするときに情報を追加して送ってalertを出させる処理
-                header('location: index.php?digits_error="true"');
+                header('location: ./view/index.php?digits_error="true"');
                 exit;
             }
         } else {
-            // header('Location:./index.php');
             echo "エラー出てる";
         }
     }

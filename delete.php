@@ -15,7 +15,7 @@ try {
 
 
     $stmt = $db->exec("DELETE FROM posts WHERE post_id = '$post_id'");
-    header('Location:index.php');
+    header('Location:./view/index.php');
     exit();
 } catch (PDOException $e) {
     echo "データベースに接続できませんでした:".$e->getMessage();
