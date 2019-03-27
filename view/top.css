@@ -8,12 +8,13 @@ body {
   background-image: url(topbg.jpg);
   background-size: cover;
   background-attachment: fixed;
+  flex-direction: column;
 }
 h1 {
   padding: 0;
   margin: 0;
   position: relative;
-  font-size: 10em;
+  font-size: 6em;
   text-align: center;
   background-image: url(topbg.jpg);
   background-size: cover;
@@ -29,4 +30,17 @@ h1:before {
   z-index: -1;
   text-shadow: -5px 5px 20px #000, -10px 10px 30px #000;
   /* text-shadow: -20px 15px, 40px #000, -25px 20px 50px #000; */
+}
+.link {
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  opacity: 0.3;
+}
+.link:hover {
+  transition-duration: 0.5s;
+  opacity: 0.8;
 }
