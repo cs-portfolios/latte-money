@@ -7,7 +7,7 @@ include_once('./header.html');
 ?>
 
 
-<div class="row">
+<div class="row" style="min-height: 100vh;">
     <div class="col-md-8 ml-auto mr-auto mt-2">
         <p class="h4">新規登録</p>
         <form id="signupForm" action="../register.php" method="post" class="form-group" name="postForm">
@@ -20,3 +20,5 @@ include_once('./header.html');
         </form>
     </div>
 </div>
+
+<?php include_once('./footer.html');

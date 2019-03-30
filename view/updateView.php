@@ -27,7 +27,7 @@ $db = new PDO(
           $currentName = $row['name'];
       }
 ?>
-<div class="row">
+<div class="row" style="min-height:100vh;">
     <div class="col-md-8 ml-auto mr-auto">
         <div class="form-group">
             <form action="../update.php" method="post" class="form" name="postForm">
@@ -53,3 +53,5 @@ $db = new PDO(
         </div>
     </div>
 </div>
+
+<?php include_once('./footer.html');

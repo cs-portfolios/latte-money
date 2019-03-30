@@ -8,7 +8,7 @@ include_once('./header.html');
 
 ?>
 
-<div class="row">
+<div class="row" style="min-height:100vh;">
     <div class="col-md-8 ml-auto mr-auto mt-2">
         <form id="loginForm" action="../loginCheck.php" method="post" class="form-group" name="postForm">
             <label>ログインユーザー名</label>
@@ -28,3 +28,5 @@ include_once('./header.html');
         </div>
     </div>
 </div>
+
+<?php include_once('./footer.html');

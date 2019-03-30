@@ -4,7 +4,7 @@ include_once('./layout.php');
 include_once('./header.html');
 
 ?>
-<div class="row">
+<div class="row" style="min-height:100vh">
     <div class="col-md-10 ml-auto mr-auto">
         <p class="h2 mt-3">Latte Moneyについて</p>
 
@@ -16,3 +16,5 @@ include_once('./header.html');
         <p>当サイトは、そんなラテマネーを気軽に簡単にメモすることで、お金を使っている意識を持てるようにするのを目的としたwebアプリです。</p>
     </div>
 </div>
+
+<?php include_once('./footer.html');
