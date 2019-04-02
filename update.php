@@ -9,6 +9,7 @@ $post = $_POST;
 foreach ($post as $row) {
     $changeId = $row['post_id'];
     $newProduct = $row['product'];
+    $newProduct = htmlspecialchars($newProduct, ENT_QUOTES);
     $newPrice = $row['price'];
     $newDate = $row['date'];
     $name = $row['name'];

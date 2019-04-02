@@ -15,18 +15,16 @@ include_once('../config.php');
 
 // ログイン中のname
 $loginName = $_SESSION['loginName'];
+$loginName = htmlspecialchars($loginName, ENT_QUOTES);
 
 
 // 桁数が多いときのエラーの際にだけalertを出させる処理
-$digits_error = $_GET["digits_error"];
+$digitsError = $_GET["digits_error"];
 if ($digits_error==true) {
     echo('<script type="text/javascript">alert("ケタ数は3ケタまでです");</script>');
 } else {
 }
 
-?>
-
-<?php
 include_once('./header.html');
 ?>
 
@@ -71,7 +69,6 @@ include_once('./header.html');
                     PASSWORD
                              );
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 
       $stmt = $db->query("SELECT post_id, posts.* FROM posts WHERE name = '$loginName'");
       $rows = $stmt->fetchALL(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);

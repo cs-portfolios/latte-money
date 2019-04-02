@@ -8,6 +8,7 @@ include_once('./config.php');
 // passwordはハッシュ化する
 
 $name = $_POST['name'];
+$name = htmlspecialchars($name, ENT_QUOTES);
 $password = $_POST['password'];
 $password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -25,5 +26,6 @@ try {
     header("Location: ./view/index.php");
     exit;
 } catch (PDOException $e) {
-    echo "同名の名前がすでに存在しています。違う名前で再登録してください。";
+    header('Location: ./view/signup.php?name_error="true"');
+    exit;
 }

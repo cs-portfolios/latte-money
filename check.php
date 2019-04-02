@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     {
         $post = $_POST["post"];
         $name = $post["name"];
+        // productは文字列を入力できるのでエスケープ処理をする
         $product = $post["product"];
+        $product = htmlspecialchars($product, ENT_QUOTES);
         $price = (int)$post["price"];
         $date = $post["date"];
 

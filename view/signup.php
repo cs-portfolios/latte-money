@@ -4,6 +4,13 @@ $title = "新規登録";
 include_once('./layout.php');
 include_once('./header.html');
 
+// 同じ名前の時にエラーを出させる処理
+$nameError = $_GET["name_error"];
+if ($nameError == true) {
+    echo('<script type="text/javascript">alert("その名前は使われています。");</script>');
+} else {
+}
+
 ?>
 
 
