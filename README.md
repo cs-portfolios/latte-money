@@ -17,5 +17,5 @@
 ログイン機能、CRUD機能、パスワードのハッシュ化とエスケープ処理
 
 ## Heroku
-
+HerokuのURLはこちら↓
 https://lattemoney.herokuapp.com
