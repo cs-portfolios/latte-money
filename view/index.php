@@ -20,7 +20,7 @@ $loginName = htmlspecialchars($loginName, ENT_QUOTES);
 
 // 桁数が多いときのエラーの際にだけalertを出させる処理
 $digitsError = $_GET["digits_error"];
-if ($digits_error==true) {
+if ($digitsError==true) {
     echo('<script type="text/javascript">alert("ケタ数は3ケタまでです");</script>');
 } else {
 }
