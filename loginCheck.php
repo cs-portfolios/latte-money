@@ -31,7 +31,7 @@ if (!empty($_POST['name'] && !empty($_POST['password']))) {
                         $_SESSION['loginName'] = $name;
                         header("Location:./view/index.php");
                     } else {
-                        echo 'パスワードが違います';
+                        echo 'パスワードが違います。';
                     }
                 }
             } else {
@@ -41,7 +41,7 @@ if (!empty($_POST['name'] && !empty($_POST['password']))) {
             echo "データベースに接続できませんでした:".$e->getMessage();
         }
     } else {
-        echo "無効な文字列が含まれています";
+        echo "無効な文字列が含まれています。";
     }
 } else {
     echo "error";

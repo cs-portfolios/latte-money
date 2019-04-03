@@ -29,3 +29,4 @@ try {
     header('Location: ./view/signup.php?name_error="true"');
     exit;
 }
+
